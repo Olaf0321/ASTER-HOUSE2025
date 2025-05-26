@@ -381,12 +381,11 @@
           <?php echo get_the_date('Y.m.d') ;?>
           <span><?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->name; } ?></span>
         </dt>
-      <?php if (has_post_thumbnail()) : ?>
+        <?php if (has_post_thumbnail()) : ?>
         <dd data-img="<?php the_post_thumbnail_url('large'); ?>" class="fadeUp">
-      <?php endif; ?>
-
           <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ;?></a>
         </dd>
+        <?php endif; ?>
         <div class="line-wrapper"></div>
       </div>
 
