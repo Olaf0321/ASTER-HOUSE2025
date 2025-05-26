@@ -381,18 +381,9 @@
           <?php echo get_the_date('Y.m.d') ;?>
           <span><?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->name; } ?></span>
         </dt>
-        <?php
-          $tags = get_the_tags( get_the_ID() );
-          $tag_data = '';
-          if ( $tags && ! is_wp_error( $tags ) ) {
-              // タグ名を使って拡張子付きで指定
-              $tag_data = esc_attr( $tags[0]->name ); 
-          }
-
-          // 最終的な画像URL
-          $image_path = get_template_directory_uri() . '/images/' . $tag_data;
-        ?>
-        <dd data-img="<?php echo esc_url($image_path); ?>" class="fadeUp">
+      <?php if (has_post_thumbnail()) : ?>
+        <dd data-img="<?php the_post_thumbnail_url('large'); ?>" class="fadeUp">
+      <?php endif; ?>
 
           <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ;?></a>
         </dd>
