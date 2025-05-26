@@ -11,7 +11,7 @@ table,caption,tbody,tfoot,thead,tr,th,td,figure {
     margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;font-weight: normal;background: transparent;list-style: none;
 }
 img{vertical-align:top;}
-html {scroll-behavior: smooth;}
+html {scroll-behavior: smooth; -webkit-overflow-scrolling: touch;}
 
 
 .disply_none {display: none;}
