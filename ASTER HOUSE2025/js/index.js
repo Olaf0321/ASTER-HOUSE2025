@@ -47,17 +47,12 @@ window.addEventListener('load', function() {
   const hasPlayed = sessionStorage.getItem('fvPlayed') === 'true';
   // 下層ページからトップへの遷移判定
   let skipAnimations = hasPlayed;      // 初回再生済みなら最初からスキップ
-  const referrer = document.referrer;
-  if (referrer) {
+  if (hasPlayed || location.href !== location.origin+ '/') {
     try {
-      const refUrl = new URL(referrer, location.origin);
-      // トップページ以外から戻ってきたらスキップ
-      if (refUrl.origin === location.origin) {
+      console.log('here');
         skipAnimations = true;
-      }
     } catch (e) {}
   }
-
   if (skipAnimations) {
     // 静止画のみ表示
     loadingWrap.classList.add('none');
