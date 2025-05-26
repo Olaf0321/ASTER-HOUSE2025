@@ -52,8 +52,7 @@ window.addEventListener('load', function() {
     try {
       const refUrl = new URL(referrer, location.origin);
       // トップページ以外から戻ってきたらスキップ
-      if (refUrl.origin === location.origin &&
-          !/(?:\/$|index(?:\.html|\.php)?$|front-page\.php$)/.test(refUrl.pathname)) {
+      if (refUrl.origin === location.origin) {
         skipAnimations = true;
       }
     } catch (e) {}
