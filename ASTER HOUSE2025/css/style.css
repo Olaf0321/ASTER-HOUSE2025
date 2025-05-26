@@ -43,6 +43,8 @@ body {
     font-feature-settings: 'palt' 1;
     word-wrap: break-word;
     overscroll-behavior:  contain; /* contain; macバウンス無効 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 p {
@@ -113,6 +115,14 @@ h3 {
     position: relative;
     background-image: url(../images/main.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* fallback for aspect-ratio */
+    aspect-ratio: 96/53;
+    /* fallback for Safari */
+    @supports not (aspect-ratio: 1/1) {
+      height: 54.2vw;
+    }
 }
 .header__wrapper {
     width: 100%;
@@ -245,12 +255,15 @@ h3 {
     top: 80px;
     left: 50%;
     transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     width: 1px;
     height: 0px;
     background: #000;
     opacity: 1; /* 常に表示 */
     animation: stretch 2.5s linear infinite;
+    -webkit-animation: stretch 2.5s linear infinite;
     animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
 }
 .scroll-icon .text {
     position: absolute;
@@ -264,6 +277,20 @@ h3 {
     letter-spacing: 0.1em;
 }
     @keyframes stretch {
+        0% {
+            height: 0px;
+            top: 80px;
+        }
+        50% {
+            height: 150px;
+            top: 80px;
+        }
+        100% {
+            height: 0px;
+            top: 100%;
+        }
+    }
+    @-webkit-keyframes stretch {
         0% {
             height: 0px;
             top: 80px;

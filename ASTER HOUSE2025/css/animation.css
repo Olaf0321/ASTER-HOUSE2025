@@ -3,6 +3,7 @@
   opacity: 0;
   visibility: hidden;
   transition: all 1.5s;
+  -webkit-transition: all 1.5s;
 }
 .fadeIn.active {
   opacity: 1;
@@ -16,76 +17,105 @@
     opacity: 1;
   }
 }
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .fadeUp {
   opacity: 0;
   transform: translateY(30px);
+  -webkit-transform: translateY(30px);
   transition: all 1.5s;
+  -webkit-transition: all 1.5s;
 }
 .fadeUp.active {
   opacity: 1;
   transform: translateY(0);
+  -webkit-transform: translateY(0);
 }
   @media screen and (max-width: 767px) {
     .fadeUp {
       opacity: 0;
       transform: translateY(15px);
+      -webkit-transform: translateY(15px);
       transition: all 1.5s;
+      -webkit-transition: all 1.5s;
     }    
   }
 
 .fadeUp-tab {
   opacity: 0;
   transform: translateY(30px);
+  -webkit-transform: translateY(30px);
   transition: all 1.5s;
+  -webkit-transition: all 1.5s;
 }
 .fadeUp-tab.active {
   opacity: 1;
   transform: translateY(0);
+  -webkit-transform: translateY(0);
 }
   @media screen and (max-width: 767px) {
     .fadeUp-tab {
       opacity: 0;
       transform: translateY(15px);
+      -webkit-transform: translateY(15px);
       transition: all 1.5s;
+      -webkit-transition: all 1.5s;
     }    
   }
   
 .fadeLeft {
   transition: transform 1s ease, opacity 1s ease;
+  -webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
   opacity: 0;
   transform: translateX(50%);
+  -webkit-transform: translateX(50%);
 }
 .fadeLeft.active {
   opacity: 1;
   transform: translateX(0);
+  -webkit-transform: translateX(0);
 }
 /* 上から徐々に表示 */
 .fadeDown {
   opacity: 0;
   transform: translateY(-30px);
+  -webkit-transform: translateY(-30px);
   transition: all 1.5s;
+  -webkit-transition: all 1.5s;
 }
 .fadeDown.active {
   opacity: 1;
   transform: translateY(0);
+  -webkit-transform: translateY(0);
 }
   @media screen and (max-width: 767px) {
     .fadeDown {
       opacity: 0;
       transform: translateY(-15px);
+      -webkit-transform: translateY(-15px);
       transition: all 1.5s;
+      -webkit-transition: all 1.5s;
     }    
   }
 /* アイコン自体が上から徐々に出現 */
 .fadeInText {
   opacity: 0;
   transform: translateY(-30px);
+  -webkit-transform: translateY(-30px);
   transition: opacity 1.5s, transform 1.5s;
+  -webkit-transition: opacity 1.5s, -webkit-transform 1.5s;
 }
 .fadeInText.active {
   opacity: 1;
   transform: translateY(0);
+  -webkit-transform: translateY(0);
 }
 
 /* 相談会svg吹き出しディレイ */
@@ -96,17 +126,28 @@
   stroke-width: 3px;
   opacity: 0;
   transform: translate(0, 10px);
+  -webkit-transform: translate(0, 10px);
 }
 .speech-q.animate {
   animation: anime 0.5s forwards;
+  -webkit-animation: anime 0.5s forwards;
 }
 .speech-e.animate {
   animation: anime 0.5s 2s forwards;
+  -webkit-animation: anime 0.5s 2s forwards;
 }
 @keyframes anime {
   100% {
       opacity: 1;
       transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes anime {
+  100% {
+      opacity: 1;
+      transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
   }
 }
 
