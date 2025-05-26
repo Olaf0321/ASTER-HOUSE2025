@@ -120,7 +120,29 @@ window.addEventListener('pageshow', function(event) {
 
 // トップ（index.php,front-page.php等）専用のheader__page表示制御
 document.addEventListener("DOMContentLoaded", function () {
+  // 下層ペジでローディングを取り除く
+  const loadingWrap      = document.getElementById('loadingWrap');
+  const loadingTopBorder = document.getElementById('loadingTopBorder');
+  const topAnimeBgWrap   = document.getElementById('topAnimeBgWrap');
+  const topAnimeScroll   = document.getElementById('topAnimeScroll');
+  const headerTop        = document.getElementById('headerTop');
 
+  // ───────────────────────────────────────────────────────
+  // 【追加】初回再生済みチェック → 以降はスキップ
+  // ───────────────────────────────────────────────────────
+  if (location.href !== location.origin+ '/') {
+    try {
+      console.log('here1');
+        skipAnimations = true;
+        loadingWrap.classList.add('none');
+        document.body.classList.remove('loading');
+        loadingTopBorder.classList.remove('on');
+        topAnimeBgWrap.classList.remove('on');
+        topAnimeScroll.style.display = 'none';
+        headerTop.classList.add('on');
+    } catch (e) {}
+  }
+  
     // ← ここから
   console.log("pathname:", window.location.pathname);
   console.log("href:",     window.location.href);
