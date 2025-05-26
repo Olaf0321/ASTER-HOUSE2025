@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <article class="header__top border_none" id="headerTop">
   <!--  追加分 ここから  -->
   <div class="top_anime-bg_wrap" id="topAnimeBgWrap">
@@ -381,7 +380,7 @@
           <?php echo get_the_date('Y.m.d') ;?>
           <span><?php $cat = get_the_category(); $cat = $cat[0]; { echo $cat->name; } ?></span>
         </dt>
-        <?php if (has_post_thumbnail()) : ?>
+        <?php if (get_the_title()) : ?>
         <dd data-img="<?php the_post_thumbnail_url('large'); ?>" class="fadeUp">
           <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ;?></a>
         </dd>
