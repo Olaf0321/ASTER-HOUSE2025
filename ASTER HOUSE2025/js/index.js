@@ -44,8 +44,7 @@ window.addEventListener('load', function() {
   // ───────────────────────────────────────────────────────
   // 【追加】初回再生済みチェック → 以降はスキップ
   // ───────────────────────────────────────────────────────
-  const hasPlayed = sessionStorage.getItem('fvPlayed') === 'false';
-
+  const hasPlayed = sessionStorage.getItem('fvPlayed') === 'true';
   // 下層ページからトップへの遷移判定
   let skipAnimations = hasPlayed;      // 初回再生済みなら最初からスキップ
   const referrer = document.referrer;
