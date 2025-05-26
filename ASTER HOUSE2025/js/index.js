@@ -44,8 +44,7 @@ window.addEventListener('load', function() {
   // ───────────────────────────────────────────────────────
   // 【追加】初回再生済みチェック → 以降はスキップ
   // ───────────────────────────────────────────────────────
-  const hasPlayed = sessionStorage.getItem('fvPlayed') === 'false';
-
+  const hasPlayed = sessionStorage.getItem('fvPlayed') === 'true';
   // 下層ページからトップへの遷移判定
   let skipAnimations = hasPlayed;      // 初回再生済みなら最初からスキップ
   const referrer = document.referrer;
@@ -53,8 +52,7 @@ window.addEventListener('load', function() {
     try {
       const refUrl = new URL(referrer, location.origin);
       // トップページ以外から戻ってきたらスキップ
-      if (refUrl.origin === location.origin &&
-          !/(?:\/$|index(?:\.html|\.php)?$|front-page\.php$)/.test(refUrl.pathname)) {
+      if (refUrl.origin === location.origin) {
         skipAnimations = true;
       }
     } catch (e) {}
