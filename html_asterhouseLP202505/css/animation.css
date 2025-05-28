@@ -2,11 +2,20 @@
 .fadeIn {
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: all 1.5s;
   transition: all 1.5s;
 }
 .fadeIn.active {
   opacity: 1;
   visibility: visible;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes fadeIn {
   0% {
@@ -19,11 +28,14 @@
 
 .fadeUp {
   opacity: 0;
+  -webkit-transform: translateY(30px);
   transform: translateY(30px);
+  -webkit-transition: all 1.5s;
   transition: all 1.5s;
 }
 .fadeUp.active {
   opacity: 1;
+  -webkit-transform: translateY(0);
   transform: translateY(0);
 }
   @media screen and (max-width: 7067px) {
@@ -52,22 +64,28 @@
   }
   
 .fadeLeft {
+  -webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
   transition: transform 1s ease, opacity 1s ease;
   opacity: 0;
+  -webkit-transform: translateX(50%);
   transform: translateX(50%);
 }
 .fadeLeft.active {
   opacity: 1;
+  -webkit-transform: translateX(0);
   transform: translateX(0);
 }
 /* 上から徐々に表示 */
 .fadeDown {
   opacity: 0;
+  -webkit-transform: translateY(-30px);
   transform: translateY(-30px);
+  -webkit-transition: all 1.5s;
   transition: all 1.5s;
 }
 .fadeDown.active {
   opacity: 1;
+  -webkit-transform: translateY(0);
   transform: translateY(0);
 }
   @media screen and (max-width: 7067px) {
@@ -80,11 +98,14 @@
 /* アイコン自体が上から徐々に出現 */
 .fadeInText {
   opacity: 0;
+  -webkit-transform: translateY(-30px);
   transform: translateY(-30px);
+  -webkit-transition: opacity 1.5s, -webkit-transform 1.5s;
   transition: opacity 1.5s, transform 1.5s;
 }
 .fadeInText.active {
   opacity: 1;
+  -webkit-transform: translateY(0);
   transform: translateY(0);
 }
 
@@ -145,6 +166,8 @@
   height: 100vh;
   background: #fff;
   z-index: 9999;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 .loading_wrap.none {
   display: none;
@@ -210,10 +233,12 @@
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
+  -webkit-transition: all 2s;
   transition: all 2s;
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 13;
+  -webkit-overflow-scrolling: touch;
 }
 .top_anime_scroll::-webkit-scrollbar {
   display: none;
@@ -231,6 +256,7 @@
   pointer-events: none;
 }
 .top_anime-bg_wrap object {
+  -webkit-transition: -webkit-transform cubic-bezier(0, 0.55, 0.45, 1) 1s;
   transition: transform cubic-bezier(0, 0.55, 0.45, 1) 1s;
 }
 .top_anime-text-01, .top_anime-text-02, .top_anime-text-03 {
@@ -240,6 +266,7 @@
   width: 100%;
   /* height: 140%; */
   background-repeat: no-repeat;
+  -webkit-transition: all cubic-bezier(0, 0.55, 0.45, 1) 1s;
   transition: all cubic-bezier(0, 0.55, 0.45, 1) 1s;
 }
 .top_anime-text-01 {
@@ -251,9 +278,11 @@
 
 
 .top_anime-bg_wrap.scroll-01-02 .top_anime-text-01 {
+  -webkit-transform: translateY(-40.8%);
   transform: translateY(-40.8%);
 }
 .top_anime-bg_wrap.scroll-01-02 .top_anime-text-02 {
+  -webkit-transform: translateY(-24%);
   transform: translateY(-24%);
 }
 
@@ -261,6 +290,7 @@
 
 
 .top_anime-bg_wrap.scroll .top_anime-text-01 {
+  -webkit-transform: translateY(-40.8%);
   transform: translateY(-40.8%);
 }
 .top_anime-text-02 {
@@ -269,6 +299,7 @@
   background-size: 36% auto;
 }
 .top_anime-bg_wrap.scroll .top_anime-text-02 {
+  -webkit-transform: translateY(-24%);
   transform: translateY(-24%);
 }
 .top_anime-text-03 {
@@ -288,6 +319,7 @@
   background-position: top 2% left 67.1%;
 }
 .top_anime-bg_wrap.scroll .top_anime-text-03 object {
+  -webkit-transform: translateY(-74%);
   transform: translateY(-74%);
 }
 .loading_top_border_wrap {
