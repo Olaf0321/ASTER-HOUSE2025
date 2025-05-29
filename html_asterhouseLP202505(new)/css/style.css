@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 html {
-    -webkit-scroll-behavior: smooth !important;
-    scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important; /* smooth ではなく auto に */
+    
 }
 
 :root {
@@ -97,36 +97,18 @@ h3 {
     background-position: center top;
     background-size: 1827px auto;
     z-index: -2;
-    -webkit-clip-path: inset(0 50% 0 50%);
     clip-path: inset(0 50% 0 50%);
-    -webkit-animation: curtain-open 1.5s ease-out forwards;
     animation: curtain-open 1.5s ease-out forwards;
-    -webkit-animation-delay: 0.5s;
     animation-delay: 0.5s;
 }
-
-@-webkit-keyframes curtain-open {
-    from {
-        -webkit-clip-path: inset(0 50% 0 50%);
-        clip-path: inset(0 50% 0 50%);
-    }
-    to {
-        -webkit-clip-path: inset(0 0 0 0);
-        clip-path: inset(0 0 0 0);
-    }
-}
-
 @keyframes curtain-open {
     from {
-        -webkit-clip-path: inset(0 50% 0 50%);
         clip-path: inset(0 50% 0 50%);
     }
     to {
-        -webkit-clip-path: inset(0 0 0 0);
         clip-path: inset(0 0 0 0);
     }
 }
-
 #bg::after {
     content: "";
     position: fixed;
@@ -140,40 +122,20 @@ h3 {
     background-size: 1827px auto;
     z-index: -1;
     opacity: 0;
-    -webkit-transform: translateY(20px);
     transform: translateY(20px);
-    -webkit-animation: fadeUp 1s ease-out forwards;
     animation: fadeUp 1s ease-out forwards;
-    -webkit-animation-delay: 2s;
-    animation-delay: 2s;
+    animation-delay: 2s; /* curtain-open 後に表示開始 */
 }
-
-@-webkit-keyframes fadeUp {
-    from {
-        opacity: 0;
-        -webkit-transform: translateY(20px);
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-
 @keyframes fadeUp {
     from {
         opacity: 0;
-        -webkit-transform: translateY(20px);
         transform: translateY(20px);
     }
     to {
         opacity: 1;
-        -webkit-transform: translateY(0);
         transform: translateY(0);
     }
 }
-
 .container {
     width: 100%;
     max-width: 510px;
@@ -212,7 +174,6 @@ h3 {
     width: 26px;
     height: 1px;
     background-color: var(--main_color);
-    -webkit-transition: all .4s;
     transition: all .4s;
 }
 .header_page .openbtn1 span:nth-of-type(1) { top: 0; }
@@ -220,7 +181,6 @@ h3 {
 .header_page .openbtn1 span:nth-of-type(3) { top: 20px; }
 .header_page .openbtn1.active span:nth-of-type(1) {
     top: 7px;
-    -webkit-transform: translateY(6px) rotate(-45deg);
     transform: translateY(6px) rotate(-45deg);
     width: 30px;
     height: 1.8px;
@@ -230,7 +190,6 @@ h3 {
 }
 .header_page .openbtn1.active span:nth-of-type(3) {
     top: 19px;
-    -webkit-transform: translateY(-6px) rotate(45deg);
     transform: translateY(-6px) rotate(45deg);
     width: 30px;
     height: 1.8px;
@@ -243,13 +202,10 @@ h3 {
   right: 0;               /* 右端に固定 */
   width: 100%;
   background: #fff;
-  -webkit-clip-path: inset(0 0 0 100%);
   clip-path: inset(0 0 0 100%);
-  -webkit-transition: -webkit-clip-path .5s ease-in-out;
+  -webkit-clip-path: inset(0 0 0 100%0);
   transition: clip-path .5s ease-in-out;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-direction: column;
   flex-direction: column;
   z-index: 10000;
 }
@@ -259,17 +215,15 @@ h3 {
     width: 510px;
     right: calc((100vw - 510px)/2 - 8px);
     left: auto;
-    -webkit-clip-path: inset(0 0 0 100%);
     clip-path: inset(0 0 0 100%);
-    -webkit-transition: -webkit-clip-path .5s ease-in-out;
+    -webkit-clip-path: inset(0 0 0 100%);
     transition: clip-path .5s ease-in-out;
 }
 }
 /* ── パネル開／閉（共通） ── */
 .header_page #g-nav.panelactive {
-  -webkit-clip-path: inset(0 0 0 0);
   clip-path: inset(0 0 0 0);
-  -webkit-transition: -webkit-clip-path .5s ease-in-out;
+  -webkit-clip-path: inset(0 0 0 0);
   transition: clip-path .5s ease-in-out;
 }
 
@@ -418,7 +372,6 @@ h3 {
     transform: translateX(-50%);
     font-size: 11px;
     font-weight: 600;
-    -webkit-writing-mode: vertical-rl;
     -ms-writing-mode: tb-rl;
     writing-mode: vertical-rl;
     letter-spacing: 0.1em;
@@ -816,9 +769,7 @@ h3 {
 .strength {
     width: 100%;
     display: flex;
-    -webkit-scroll-snap-type: x mandatory;
     scroll-snap-type: x mandatory;
-    -webkit-scroll-behavior: smooth;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none; 
@@ -850,7 +801,6 @@ h3 {
     position: absolute;
     top: 50%;
     left: 23px;
-    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     background-image: url('../images/icon_arrow_strengh_left.svg');
     background-repeat: no-repeat;
@@ -864,7 +814,6 @@ h3 {
     position: absolute;
     top: 50%;
     right: 23px;
-    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     background-image: url('../images/icon_arrow_strengh_right.svg'); 
     background-repeat: no-repeat;
@@ -1025,7 +974,6 @@ h3 {
 
 /* チェックボックスのスタイル */
 input[type="checkbox"] {
-    -webkit-appearance: none;
     appearance: none;
     width: 1.2em;
     height: 1.2em;
@@ -1047,7 +995,6 @@ input[type="checkbox"]:checked::before {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -1096,16 +1043,15 @@ input::placeholder, textarea::placeholder {
 /* iOS／Chrome for Android などの WebKit 系 */
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  font-family: 'Yu Gothic', '游ゴシック体', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, sans-serif;
+  font-family: 'Yu Gothic','游ゴシック体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',Meiryo,sans‑serif;
   font-size: 1em;
   font-weight: 500;
   color: #B5B5B6;
-  opacity: 1;
 }
 /* Firefox */
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-  font-family: 'Yu Gothic', '游ゴシック体', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, sans-serif;
+  font-family: 'Yu Gothic','游ゴシック体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',Meiryo,sans‑serif;
   font-size: 1em;
   font-weight: 500;
   color: #B5B5B6;
@@ -1113,7 +1059,7 @@ textarea::-moz-placeholder {
 /* Edge／IE */
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  font-family: 'Yu Gothic', '游ゴシック体', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, sans-serif;
+  font-family: 'Yu Gothic','游ゴシック体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',Meiryo,sans‑serif;
   font-size: 1em;
   font-weight: 500;
   color: #B5B5B6;
@@ -1121,7 +1067,7 @@ textarea:-ms-input-placeholder {
 /* 最新ブラウザ */
 input::placeholder,
 textarea::placeholder {
-  font-family: 'Yu Gothic', '游ゴシック体', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, sans-serif;
+  font-family: 'Yu Gothic','游ゴシック体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',Meiryo,sans‑serif;
   font-size: 1.2em;
   font-weight: 500;
   color: #B5B5B6;
@@ -1148,9 +1094,7 @@ textarea::placeholder {
     letter-spacing: 0.5em;
     border-radius: 100px;
     border: 1px solid #000;
-    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
 .form-btn::after {
@@ -1160,13 +1104,11 @@ textarea::placeholder {
     right: 18px;
     width: 25px;
     height: 17px;
-    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
     background-image: url('../images/icon_submit.svg'); 
     background-size: contain;
     background-repeat: no-repeat;
+    transition: all 0.5s ease;
 }
 .form-btn:hover {
     background: #000;
@@ -1185,18 +1127,13 @@ textarea::placeholder {
     bottom: 0;
 }
 .info_4col {
-    position: -webkit-sticky;
     position: sticky;
     bottom: 0;
     display: none;
-    display: -webkit-grid;
-    display: grid;
-    -webkit-grid-template-columns: repeat(4, 1fr);
     grid-template-columns: repeat(4, 1fr);
     height: 80px;
     border-top: solid 1px #000;
     z-index: 200;  /* z100より全面 */
-    -webkit-box-sizing: content-box;
     box-sizing: content-box;
 }
 .info_4col.visible {
