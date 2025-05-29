@@ -6,6 +6,7 @@
 *,
 ::before,
 ::after {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-style: solid;
   border-width: 0;
@@ -24,6 +25,8 @@ html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -webkit-tap-highlight-color: transparent; /* 3*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Sections */
@@ -35,9 +38,14 @@ html {
 
 body {
   margin: 0;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: unset;
-  @media only screen and(-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -78,6 +86,8 @@ h6 {
   font-size: inherit;
   font-weight: inherit;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Lists (enumeration) */
@@ -88,6 +98,9 @@ ol {
   margin: 0;
   padding: 0;
   list-style: none;
+  -webkit-padding-start: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
 }
 
 /* Lists (definition) */
@@ -234,7 +247,8 @@ input,
 optgroup,
 select,
 textarea {
-  -webkit-appearance: none; /* 1 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   vertical-align: middle;
   color: inherit;
@@ -244,7 +258,9 @@ textarea {
   margin: 0;
   border-radius: 0;
   text-align: inherit;
-  text-transform: inherit; /* 2 */
+  text-transform: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
 }
 
 /**
@@ -321,7 +337,9 @@ textarea {
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-  height: auto;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 /**
@@ -346,8 +364,9 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+  -webkit-appearance: button;
+  font: inherit;
+  cursor: pointer;
 }
 
 /**
@@ -355,6 +374,8 @@ textarea {
  */
 [type="number"] {
   -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
 }
 
 /**
@@ -400,8 +421,10 @@ summary {
 */
 
 table {
-  border-color: inherit; /* 1 */
+  border-color: inherit;
   border-collapse: collapse;
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0;
 }
 
 caption {
@@ -417,4 +440,125 @@ th {
 th {
   text-align: left;
   font-weight: bold;
+}
+
+/* Safari-specific form fixes */
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline-offset: -2px;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Safari number input fixes */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Safari file input fixes */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Safari select fixes */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* Safari button fixes */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Safari focus fixes */
+:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safari table fixes */
+table {
+  border-color: inherit;
+  border-collapse: collapse;
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0;
+}
+
+/* Safari text rendering fixes */
+p, h1, h2, h3, h4, h5, h6 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Safari image fixes */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Safari text selection fixes */
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+  -webkit-text-fill-color: #000;
+}
+
+/* Safari scrollbar fixes */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
 }
