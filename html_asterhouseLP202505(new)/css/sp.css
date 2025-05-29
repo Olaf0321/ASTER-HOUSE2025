@@ -1,0 +1,362 @@
+
+@media screen and (max-width: 375px) {
+
+
+p {
+    font-size: 11px;
+}
+h2 {
+    font-size: 38px;
+}
+
+  /* ── パネル内ロゴ ── */
+.header_page #g-nav .panel_logo {
+    display: block;;
+    order: 1 !important;
+    flex: 0 0 auto;
+    width: 42.66%;
+    max-width: 250px;
+    padding: 15px 0 0 20px;
+    margin: 0 0 70px;
+}
+.header_page #g-nav .panel_logo a img {
+    width: 100%;
+}
+
+.header_page #g-nav #g-navi-list li a {
+    font-size: 28px;   
+}
+.header_page #g-nav #g-navi-list li a span {
+    font-size: 13px;
+}
+
+.header_page #g-nav .sns {
+    width: 100%;
+    order: 3 !important;
+    flex: 1 1 auto !important;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+.header_page #g-nav .sns ul {
+    display: flex;
+    gap: 25px; 
+    justify-content: space-between; 
+    flex-wrap: nowrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 90px;
+
+}
+.header_page #g-nav .sns li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header_page #g-nav .sns li img {
+    width: 40px;
+}
+
+/* トップのheader_page表示による設定 */
+.header_page.visible .logo,
+.header_page.visible .contact {
+    display: none !important;
+}
+/* 2. 表示したい要素 */
+.header_page.visible .openbtn1,
+.header_page.visible #menuPanel,
+.header_page.visible #g-navi-list {
+    display: block !important;
+}
+
+.header_page.visible {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto !important;
+    overflow: visible !important;
+    border-bottom: none !important;
+}
+
+/* スクロールアイコン */
+.scroll-icon {
+    position: absolute;
+    top:30%;
+    left: 5%;
+    width: 10px;
+    height: 30%;
+    overflow: visible;
+    z-index: 10;
+}
+.scroll-icon .line {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 0px;
+    background: #000;
+    opacity: 1; /* 常に表示 */
+    animation: stretch 3.5s linear infinite;
+    animation-delay: 0.5s;
+}
+.scroll-icon .scrolltext {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 600;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.1em;
+}
+    @keyframes stretch {
+        0% {
+            height: 0px;
+            top: 60px;
+        }
+        50% {
+            height: calc(100% - 60px);
+            top: 60px;
+        }
+        100% {
+            height: 0px;
+            top: 100%;
+        }
+    }
+
+.main {
+    width: 100%;
+    height: 738px;
+    margin: 0;
+    /* background-image: url('../images/fv_sample.svg'); */
+    background-position: top center;
+    background-size: cover;
+    position: relative;
+}
+.logo {
+    width: 42.66%;
+    padding: 15px 0 0 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 13;
+}
+.logo img {
+    width: 100%;
+}
+.tag {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.tag .scrolling-wrapper {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+}
+.tag .scroll-list {
+    display: inline-flex;
+    padding: 0.7em 0;
+    margin: 0;
+    animation: scroll 20s linear infinite;
+}
+.tag .scroll-list li {
+    position: relative;
+    display: inline-block;
+    margin: 0 0.8em;
+    font-size: 13px;
+    line-height: 1em;
+    font-weight: bold;
+    color: #fff;
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.link_form a {
+    display: inline;
+    position: relative;
+    color: var(--main_color);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.8em;
+    padding-bottom: 0.05em;
+    text-decoration: none;
+    background-image: linear-gradient(var(--main_color), var(--main_color));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;  /* ← 幅0で待機 */
+}
+
+.single_sell .wrapper_single_sell .sell_info p {
+    font-size: 12px;
+    font-family: 'Yu Gothic', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', メイリオ, sans-serif;
+
+}
+.single_sell .wrapper_single_sell .sell_info h3 {
+    margin: 20px 0 35px;
+    font-size: 20px;
+}
+
+.h2_ttl {
+    margin: 0 6.13%  30px;
+    font-size: 28px;
+}
+.h2_ttl span {
+    float: right;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.sell_spec {
+    overflow: hidden;
+    margin-bottom: 80px;
+    padding: 8px 0 0;
+}
+.sell_spec_area {
+    text-align: left;
+}
+.sell_spec_area .meters::before {
+    top: 50%;
+    left: 0.5em;
+    width: 25px;
+    height: 15px;
+}
+.sell_spec_area .tsubo::before {
+    top: 50%;
+    left: 0.5em;
+    width: 24px;
+    height: 15px;
+}
+.strength::-webkit-scrollbar {
+    display: none;     /* Chrome, Safari */
+}
+.arrow-left {
+    position: absolute;
+    top: 50%;
+    left: 23px;
+    width: 10px;
+    height: 20px;
+}
+.arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 23px;
+    width: 10px;
+    height: 20px;
+}
+.dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 15px;
+}
+.dot.active {
+    background: #000;
+}
+
+.note__form {
+    margin-top: -30px;
+    font-size: 8px;
+}
+.form-item .form-item-label {
+    padding: 20px 0 10px;
+    font-size: 10px;
+}
+.form-item .form-radio-group {
+    margin: 0 0 0 17px;
+    font-size: 12px;
+    line-height: 1.6em;
+    padding-bottom: 30px;
+}
+
+.form-item .form-item-textarea {
+    width: calc(100% - 50px);
+    height: 120px;
+    margin: 0 25px 20px;
+    font-size: 10px;
+}
+
+.required_sp {
+    display: inline-block;
+    margin-left: 2px;
+    font-size: 7px;
+    color: var(--main_color);
+}
+input[type="text"],input[type="email"] {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin: 0 25px 20px;
+    padding: 0 1em;
+    height: 32px;
+    flex: 1;
+    width: calc(100% - 50px);
+    font-size: 10px;
+    background: #efefef;
+}
+
+input::placeholder, textarea::placeholder {
+    font-family: 'Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+    font-size: 10px;
+}
+/* iOS／Chrome for Android などの WebKit 系 */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-family: 'Yu Gothic','游ゴシック体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',Meiryo,sans‑serif;
+  font-size: 1em;
+  font-weight: 500;
+  color: #B5B5B6;
+}
+/* エラーメッセージ */
+.error-message,.success-message {
+    color: var(--main_color);
+    font-size: 10px;
+    margin: -11px 0 0 23px;
+}
+
+.form-btn {
+    position: relative;
+    margin: 90px auto 30px;
+    padding: 10px 10px 10px 0;
+    width: 100px;
+    height: 40pxw;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+.form-btn::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 15px;
+    width: 18px;
+    height: 12px;
+}
+.form-btn:hover::after {
+    right: 9px;
+    background-image: url('../images/icon_submit_hover.svg'); 
+    transition: all 0.5s ease;
+}
+
+.info_4col {
+    height: 60px;
+}
+
+
+
+}
