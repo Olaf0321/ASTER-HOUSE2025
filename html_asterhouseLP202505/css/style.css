@@ -23,6 +23,7 @@ html {
     font-style: normal;
     font-variation-settings: "wdth" 100;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .clarendon {
     font-family: clarendon-text-pro, 'Arial','Yu Gothic','Yu Gothic UI','MS ゴシック', sans-serif;
@@ -40,12 +41,13 @@ body {
     line-height: 1.5em;
     overflow: visible !important;
     color: #000;
-    font-family: "Roboto", 'Arial','Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+    font-family: "Roboto", 'Arial','Yu Gothic',"游ゴシック体",YuGothic,"游ゴシック Medium", "Yu Gothic Medium",'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
     font-weight: 600;
     letter-spacing: 0.05em;
     font-feature-settings: 'palt' 1;
     word-wrap: break-word;
-    overscroll-behavior:  contain; /* contain; macバウンス無効 */
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
 }
 
 p {
@@ -328,44 +330,37 @@ h3 {
     height: 30%;
     overflow: visible;
     z-index: 10;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 .scroll-icon .line {
     position: absolute;
     top: 0px;
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 1px;
     height: 0px;
     background: #000;
-    opacity: 1; /* 常に表示 */
+    opacity: 1;
+    -webkit-animation: stretch 3.5s linear infinite;
     animation: stretch 3.5s linear infinite;
+    -webkit-animation-delay: 0.5s;
     animation-delay: 0.5s;
 }
 .scroll-icon .scrolltext {
     position: absolute;
     top: 0;
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     font-size: 2.93cqw;
     font-weight: 600;
     -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
     letter-spacing: 0.1em;
 }
-    @keyframes stretch {
-        0% {
-            height: 0px;
-            top: 60px;
-        }
-        50% {
-            height: calc(100% - 60px);
-            top: 60px;
-        }
-        100% {
-            height: 0px;
-            top: 100%;
-        }
-    }
 
 .main {
     width: 100%;
@@ -1262,6 +1257,99 @@ textarea::placeholder {
 }
 .info_4col img {
     object-fit: cover;
+}
+
+/* Form elements */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 6px;
+}
+
+/* Fix for Safari date input */
+input[type="date"]::-webkit-datetime-edit {
+    padding: 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+/* Fix for Safari select */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('../images/icon_form_time.svg');
+    background-repeat: no-repeat;
+    background-position: right 0.78vw center;
+    background-size: 1.09vw;
+    padding-right: 2rem;
+}
+
+/* Fix for Safari transitions */
+.fadeIn,
+.fadeUp,
+.fadeUp-tab,
+.fadeLeft,
+.fadeDown,
+.fadeInText {
+    -webkit-transition: all 1.5s;
+    transition: all 1.5s;
+}
+
+/* Fix for Safari transforms */
+.top_anime-bg_wrap.scroll .top_anime-text-01,
+.top_anime-bg_wrap.scroll .top_anime-text-02,
+.top_anime-bg_wrap.scroll .top_anime-text-03 {
+    -webkit-transform: translateY(-40.8%);
+    transform: translateY(-40.8%);
+}
+
+/* Fix for Safari animations */
+@-webkit-keyframes stretch {
+    0% {
+        height: 0px;
+        top: 60px;
+    }
+    50% {
+        height: calc(100% - 60px);
+        top: 60px;
+    }
+    100% {
+        height: 0px;
+        top: 100%;
+    }
+}
+
+@keyframes stretch {
+    0% {
+        height: 0px;
+        top: 60px;
+    }
+    50% {
+        height: calc(100% - 60px);
+        top: 60px;
+    }
+    100% {
+        height: 0px;
+        top: 100%;
+    }
 }
 
 
