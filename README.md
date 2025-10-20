@@ -1,5 +1,5 @@
 # ASTER-HOUSE2025
-This website built using PHP、HTML5, CSS3, JavaScript.
+このウェブサイトは、PHP、HTML5、CSS3、そしてJavaScriptを使用して構築されています。
 
 <a href="[https://masao-portfolio.vercel.app/](https://house.aster-estate.com/)" target="_blank">**Visit Now** 🚀</a>
 
@@ -16,14 +16,3 @@ Particle.js, Typed.js, Tilt.js, Scroll Reveal, Tawk.to, Font Awesome and JSON
 
 ## 📌 Sneak Peek of Main Page 🙈 :
 ![mockup720](https://github.com/000Jerry000/portfolio/blob/main/assets/images/projects/Aster-house.png)
-
-
-<h2>📬 Contact</h2>
-
-Feel free to reach me through the below handles if you'd like to contact me.
-
-[![telegram](https://img.shields.io/badge/telegram-139bd5?style=for-the-badge&logo=telegram&logoColor=fff)](https://t.me/tomjerry1024)
-[![discord](https://img.shields.io/badge/discord-6854eb?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/SpCY5Tvy)
-[![slack](https://img.shields.io/badge/slack-521e4e?style=for-the-badge&logo=slack&logoColor=white)](https://jerry-2qp9506.slack.com/archives/C08QNMUKU6S)
-[![chatwork](https://img.shields.io/badge/chatwork-131f2e?style=for-the-badge&logo=chatwork&logoColor=white)](https://www.chatwork.com/Web_coding)
-[![gmail](https://img.shields.io/badge/gmail-bfe5fd?style=for-the-badge&logo=gmail&logoColor=f44a3c)](https://mail.google.com/mail/u/0/?ogbl#search/in%3Asent+whitewolf961024%40gmail.com)
